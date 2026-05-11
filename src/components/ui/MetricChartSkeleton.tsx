@@ -7,7 +7,7 @@ interface MetricChartSkeletonProps {
 
 const MetricChartSkeleton: React.FC<MetricChartSkeletonProps> = ({ title, unit = 'kbps' }) => {
     return (
-        <div className="bg-white dark:bg-[--color-dd-bg-dark-card] border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] p-2.5 rounded-[--radius-sm] h-48 flex flex-col transition-colors animate-pulse">
+        <div className="bg-white dark:bg-dd-bg-dark-card border border-dd-border-light dark:border-dd-border-dark p-2.5 rounded-md h-48 flex flex-col transition-colors animate-pulse shadow-[0_1px_3px_0_rgba(0,0,0,0.02),0_1px_2px_0_rgba(0,0,0,0.06)] dark:shadow-none">
             <div className="flex justify-between mb-2">
                 <span className="text-[9px] font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-[0.1em]">{title}</span>
                 <span className="text-[9px] text-slate-400 font-mono opacity-70">{unit}</span>

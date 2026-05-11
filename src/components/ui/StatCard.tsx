@@ -10,7 +10,7 @@ interface StatCardProps {
 }
 
 const StatCard: React.FC<StatCardProps> = ({ title, value, subValue, trend, icon: Icon }) => (
-    <div className="bg-white dark:bg-[--color-dd-bg-dark-card] border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] p-2.5 rounded-[--radius-sm] flex flex-col gap-0 transition-colors shadow-sm">
+    <div className="bg-white dark:bg-dd-bg-dark-card border border-dd-border-light dark:border-dd-border-dark p-2.5 rounded-md flex flex-col gap-0 transition-all shadow-[0_1px_3px_0_rgba(0,0,0,0.02),0_1px_2px_0_rgba(0,0,0,0.06)] dark:shadow-none hover:border-primary-dd/30">
         <div className="flex justify-between items-center mb-0.5">
             <span className="text-[9px] font-extrabold uppercase tracking-[0.1em] text-slate-500 dark:text-slate-400">{title}</span>
             <Icon size={10} className="text-slate-400 opacity-60" />

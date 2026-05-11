@@ -36,11 +36,11 @@ const Register: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[--color-dd-bg-light] dark:bg-[--color-dd-bg-dark-main] p-4 transition-colors duration-200">
-            <div className="w-full max-w-md bg-white dark:bg-[--color-dd-bg-dark-card] border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] rounded-[--radius-sm] shadow-xl overflow-hidden">
+        <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dd-bg-dark-main p-4 transition-colors duration-200">
+            <div className="w-full max-w-md bg-white dark:bg-dd-bg-dark-card border border-dd-border-light dark:border-dd-border-dark rounded-sm shadow-xl overflow-hidden">
                 <div className="p-8">
                     <div className="flex items-center gap-3 mb-8 justify-center">
-                        <div className="w-10 h-10 bg-[--color-primary-dd] rounded-lg flex items-center justify-center text-white shadow-lg shadow-[--color-primary-dd]/20">
+                        <div className="w-10 h-10 bg-primary-dd rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary-dd/20">
                             <Activity size={24} />
                         </div>
                         <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">RTCMon</h1>
@@ -52,7 +52,7 @@ const Register: React.FC = () => {
                     </div>
 
                     {error && (
-                        <div className="mb-6 p-3 bg-[--color-status-error]/10 border border-[--color-status-error]/20 rounded-[--radius-sm] flex items-center gap-3 text-[--color-status-error] text-xs font-semibold">
+                        <div className="mb-6 p-3 bg-status-error/10 border border-status-error/20 rounded-sm flex items-center gap-3 text-status-error text-xs font-semibold">
                             <AlertCircle size={16} />
                             {error}
                         </div>
@@ -69,7 +69,7 @@ const Register: React.FC = () => {
                                     required
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] rounded-[--radius-sm] pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-[--color-primary-dd] transition-colors"
+                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-dd-border-light dark:border-dd-border-dark rounded-sm pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-primary-dd transition-colors"
                                     placeholder="John Doe"
                                 />
                             </div>
@@ -85,7 +85,7 @@ const Register: React.FC = () => {
                                     required
                                     value={formData.org_name}
                                     onChange={handleChange}
-                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] rounded-[--radius-sm] pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-[--color-primary-dd] transition-colors"
+                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-dd-border-light dark:border-dd-border-dark rounded-sm pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-primary-dd transition-colors"
                                     placeholder="Acme Corp"
                                 />
                             </div>
@@ -101,7 +101,7 @@ const Register: React.FC = () => {
                                     required
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] rounded-[--radius-sm] pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-[--color-primary-dd] transition-colors"
+                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-dd-border-light dark:border-dd-border-dark rounded-sm pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-primary-dd transition-colors"
                                     placeholder="name@company.com"
                                 />
                             </div>
@@ -117,7 +117,7 @@ const Register: React.FC = () => {
                                     required
                                     value={formData.password}
                                     onChange={handleChange}
-                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] rounded-[--radius-sm] pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-[--color-primary-dd] transition-colors"
+                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-dd-border-light dark:border-dd-border-dark rounded-sm pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-primary-dd transition-colors"
                                     placeholder="••••••••"
                                 />
                             </div>
@@ -136,10 +136,10 @@ const Register: React.FC = () => {
                     </form>
                 </div>
 
-                <div className="p-4 bg-slate-50 dark:bg-white/5 border-t border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] text-center">
+                <div className="p-4 bg-slate-50 dark:bg-white/5 border-t border-dd-border-light dark:border-dd-border-dark text-center">
                     <p className="text-xs text-slate-500 dark:text-slate-400">
                         Already have an account?{' '}
-                        <Link to="/login" className="font-bold text-[--color-primary-dd] hover:underline uppercase tracking-wider">Sign In</Link>
+                        <Link to="/login" className="font-bold text-primary-dd hover:underline uppercase tracking-wider">Sign In</Link>
                     </p>
                 </div>
             </div>

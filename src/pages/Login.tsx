@@ -28,11 +28,11 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-[--color-dd-bg-light] dark:bg-[--color-dd-bg-dark-main] p-4 transition-colors duration-200">
-            <div className="w-full max-w-md bg-white dark:bg-[--color-dd-bg-dark-card] border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] rounded-[--radius-sm] shadow-xl overflow-hidden">
+        <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dd-bg-dark-main p-4 transition-colors duration-200">
+            <div className="w-full max-w-md bg-white dark:bg-dd-bg-dark-card border border-dd-border-light dark:border-dd-border-dark rounded-sm shadow-xl overflow-hidden">
                 <div className="p-8">
                     <div className="flex items-center gap-3 mb-8 justify-center">
-                        <div className="w-10 h-10 bg-[--color-primary-dd] rounded-lg flex items-center justify-center text-white shadow-lg shadow-[--color-primary-dd]/20">
+                        <div className="w-10 h-10 bg-primary-dd rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary-dd/20">
                             <Activity size={24} />
                         </div>
                         <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">RTCMon</h1>
@@ -44,7 +44,7 @@ const Login: React.FC = () => {
                     </div>
 
                     {error && (
-                        <div className="mb-6 p-3 bg-[--color-status-error]/10 border border-[--color-status-error]/20 rounded-[--radius-sm] flex items-center gap-3 text-[--color-status-error] text-xs font-semibold">
+                        <div className="mb-6 p-3 bg-status-error/10 border border-status-error/20 rounded-sm flex items-center gap-3 text-status-error text-xs font-semibold">
                             <AlertCircle size={16} />
                             {error}
                         </div>
@@ -60,7 +60,7 @@ const Login: React.FC = () => {
                                     required
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] rounded-[--radius-sm] pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-[--color-primary-dd] transition-colors"
+                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-dd-border-light dark:border-dd-border-dark rounded-sm pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-primary-dd transition-colors"
                                     placeholder="name@company.com"
                                 />
                             </div>
@@ -69,7 +69,7 @@ const Login: React.FC = () => {
                         <div className="space-y-1.5">
                             <div className="flex justify-between items-center">
                                 <label className="text-[10px] font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400">Password</label>
-                                <a href="#" className="text-[10px] font-bold text-[--color-primary-dd] hover:underline uppercase tracking-wider">Forgot?</a>
+                                <a href="#" className="text-[10px] font-bold text-primary-dd hover:underline uppercase tracking-wider">Forgot?</a>
                             </div>
                             <div className="relative">
                                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
@@ -78,7 +78,7 @@ const Login: React.FC = () => {
                                     required
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] rounded-[--radius-sm] pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-[--color-primary-dd] transition-colors"
+                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-dd-border-light dark:border-dd-border-dark rounded-sm pl-10 pr-3 py-2 text-sm focus:outline-none focus:border-primary-dd transition-colors"
                                     placeholder="••••••••"
                                 />
                             </div>
@@ -95,10 +95,10 @@ const Login: React.FC = () => {
                     </form>
                 </div>
 
-                <div className="p-4 bg-slate-50 dark:bg-white/5 border-t border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] text-center">
+                <div className="p-4 bg-slate-50 dark:bg-white/5 border-t border-dd-border-light dark:border-dd-border-dark text-center">
                     <p className="text-xs text-slate-500 dark:text-slate-400">
                         Don't have an account?{' '}
-                        <Link to="/register" className="font-bold text-[--color-primary-dd] hover:underline uppercase tracking-wider">Register</Link>
+                        <Link to="/register" className="font-bold text-primary-dd hover:underline uppercase tracking-wider">Register</Link>
                     </p>
                 </div>
             </div>

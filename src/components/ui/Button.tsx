@@ -13,9 +13,9 @@ const Button: React.FC<ButtonProps> = ({
     ...props
 }) => {
     const variants = {
-        primary: 'bg-[--color-primary-dd] hover:bg-[--color-primary-dd-hover] text-white shadow-sm',
-        secondary: 'bg-white dark:bg-[--color-dd-bg-dark-sidebar] border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[--color-dd-bg-dark-card]',
-        danger: 'bg-[--color-status-error] hover:opacity-90 text-white shadow-sm',
+        primary: 'bg-primary-dd hover:bg-primary-dd-hover text-white shadow-sm',
+        secondary: 'bg-white dark:bg-dd-bg-dark-sidebar border border-dd-border-light dark:border-dd-border-dark text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-dd-bg-dark-card',
+        danger: 'bg-status-error hover:opacity-90 text-white shadow-sm',
         ghost: 'bg-transparent hover:bg-slate-100 dark:hover:bg-white/5 text-slate-500 hover:text-slate-900 dark:hover:text-slate-300',
     };
 
@@ -27,7 +27,7 @@ const Button: React.FC<ButtonProps> = ({
 
     return (
         <button
-            className={`rounded-[--radius-sm] font-semibold transition-all active:scale-[0.98] focus:outline-none flex items-center justify-center gap-2 ${variants[variant]} ${sizes[size]} ${className}`}
+            className={`rounded-sm font-semibold transition-all active:scale-[0.98] focus:outline-none flex items-center justify-center gap-2 ${variants[variant]} ${sizes[size]} ${className}`}
             {...props}
         >
             {children}

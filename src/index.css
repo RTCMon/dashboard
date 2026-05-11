@@ -1,43 +1,50 @@
 @import "tailwindcss";
 
 @theme {
-  /* Datadog Inspired Palette */
-  --color-primary-dd: #632CA6;
-  --color-primary-dd-hover: #4e2285;
+  /* Vibrant SaaS Palette (Inspired by monitor.rtc.web.id) */
+  --color-primary-dd: #7C3AED;
+  /* Vibrant Violet */
+  --color-primary-dd-hover: #6D28D9;
 
-  /* Backgrounds */
-  --color-dd-bg-light: #F7F7F7;
-  --color-dd-bg-dark-sidebar: #110F20;
-  --color-dd-bg-dark-main: #161426;
-  --color-dd-bg-dark-card: #1C1A33;
+  /* Backgrounds & Surfaces */
+  --color-dd-bg-light: #FFFFFF;
+  --color-dd-surface-light: #F8FAFC;
+
+  --color-dd-bg-dark-sidebar: #0F172A;
+  /* Slate 950 */
+  --color-dd-bg-dark-main: #1E293B;
+  /* Slate 800 */
+  --color-dd-bg-dark-card: #1E293B;
 
   /* Borders */
-  --color-dd-border-light: #E2E2E2;
-  --color-dd-border-dark: #2E2B4B;
+  --color-dd-border-light: #E2E8F0;
+  /* Slate 200 */
+  --color-dd-border-dark: #334155;
+  /* Slate 700 */
 
   /* Semantic Status */
   --color-status-success: #10B981;
   --color-status-warning: #F59E0B;
-  --color-status-error: #E11D48;
+  --color-status-error: #EF4444;
   --color-status-neutral: #64748B;
 
   /* Typography */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
-  /* Border Radius - Datadog uses sharper corners */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
+  /* Border Radius - Modern SaaS uses slightly softer corners */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 }
 
 @layer base {
   body {
-    @apply bg-[--color-dd-bg-light] text-slate-700 font-sans transition-colors duration-200 antialiased;
+    @apply bg-white text-slate-700 font-sans transition-colors duration-200 antialiased;
   }
 
   .dark body {
-    @apply bg-[--color-dd-bg-dark-main] text-slate-300;
+    @apply bg-[--color-dd-bg-dark-main] text-slate-200;
   }
 
   h1,

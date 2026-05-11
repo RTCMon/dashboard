@@ -10,15 +10,15 @@ interface BadgeProps {
 
 const Badge: React.FC<BadgeProps> = ({ children, variant = 'neutral', className = '' }) => {
     const styles = {
-        success: 'bg-[--color-status-success]/10 text-[--color-status-success] border-[--color-status-success]/20',
-        warning: 'bg-[--color-status-warning]/10 text-[--color-status-warning] border-[--color-status-warning]/20',
-        error: 'bg-[--color-status-error]/10 text-[--color-status-error] border-[--color-status-error]/20',
-        neutral: 'bg-[--color-status-neutral]/10 text-[--color-status-neutral] border-[--color-status-neutral]/20',
-        primary: 'bg-[--color-primary-dd]/10 text-[--color-primary-dd] border-[--color-primary-dd]/20',
+        success: 'bg-status-success/10 text-status-success border-status-success/20',
+        warning: 'bg-status-warning/10 text-status-warning border-status-warning/20',
+        error: 'bg-status-error/10 text-status-error border-status-error/20',
+        neutral: 'bg-status-neutral/10 text-status-neutral border-status-neutral/20',
+        primary: 'bg-primary-dd/10 text-primary-dd border-primary-dd/20',
     };
 
     return (
-        <span className={`px-1.5 py-0 rounded-[--radius-sm] text-[8px] font-extrabold uppercase border tracking-wider ${styles[variant]} ${className}`}>
+        <span className={`px-1.5 py-0 rounded-sm text-[8px] font-extrabold uppercase border tracking-wider ${styles[variant]} ${className}`}>
             {children}
         </span>
     );

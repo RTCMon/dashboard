@@ -26,7 +26,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const checkSession = async () => {
         try {
-            const data = await api.get<User>('/auth/session');
+            const data = await api.get<User>('/auth/me');
             setUser(data);
         } catch (err) {
             setUser(null);
