@@ -1,12 +1,35 @@
-import { Activity, Users, CheckCircle, Clock, Zap, Search, Bell, Settings, LayoutDashboard, Database, HelpCircle } from 'lucide-react';
+import { Activity, Users, CheckCircle, Clock, Zap, Search, Bell, Settings, LayoutDashboard, Database, HelpCircle, LogOut } from 'lucide-react';
 import Button from './components/ui/Button';
 import Badge from './components/ui/Badge';
 import StatCard from './components/ui/StatCard';
 import MetricChartSkeleton from './components/ui/MetricChartSkeleton';
 import { useTheme } from './context/ThemeContext';
+import { useAuth } from './context/AuthContext';
+import { Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route
+        path="/*"
+        element={
+          <ProtectedRoute>
+            <DashboardShell />
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
+  );
+}
+
+function DashboardShell() {
   const { theme, toggleTheme } = useTheme();
+  const { user, logout } = useAuth();
 
   return (
     <div className="min-h-screen flex bg-[--color-dd-bg-light] dark:bg-[--color-dd-bg-dark-main] text-slate-700 dark:text-slate-300 transition-colors duration-200">
@@ -30,12 +53,24 @@ function App() {
             {theme === 'dark' ? <Zap size={14} /> : <Clock size={14} />}
             {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
           </Button>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-700"></div>
-            <div className="text-[10px]">
-              <div className="font-bold text-slate-900 dark:text-white">Admin User</div>
-              <div className="text-slate-500">Pro Organization</div>
+
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold">
+                {user?.name?.[0] || 'U'}
+              </div>
+              <div className="text-[10px]">
+                <div className="font-bold text-slate-900 dark:text-white truncate max-w-[80px]">{user?.name || 'User'}</div>
+                <div className="text-slate-500 truncate max-w-[80px]">{user?.email || 'Pro Org'}</div>
+              </div>
             </div>
+            <button
+              onClick={logout}
+              className="text-slate-400 hover:text-[--color-status-error] transition-colors"
+              title="Logout"
+            >
+              <LogOut size={14} />
+            </button>
           </div>
         </div>
       </aside>
@@ -98,16 +133,8 @@ function App() {
             />
           </div>
 
-          {/* Charts Area */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 space-y-4">
-              <div className="flex items-center justify-between">
-                <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500">Live Traffic Volume</h2>
-                <div className="flex gap-2">
-                  <Badge variant="success">Healthy</Badge>
-                  <Button variant="ghost" size="sm" className="h-6">Last 60m</Button>
-                </div>
-              </div>
               <MetricChartSkeleton title="Total Bitrate (Ingest)" unit="Mbps" />
               <div className="grid grid-cols-2 gap-4">
                 <MetricChartSkeleton title="Packet Loss" unit="%" />
@@ -118,16 +145,8 @@ function App() {
             <div className="space-y-4">
               <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500">Quick Actions</h2>
               <div className="bg-white dark:bg-[--color-dd-bg-dark-card] border border-[--color-dd-border-light] dark:border-[--color-dd-border-dark] rounded-[--radius-sm] p-4 shadow-sm space-y-3">
-                <Button variant="primary" className="w-full">Create New App</Button>
-                <Button variant="secondary" className="w-full">Invite Team Member</Button>
-                <Button variant="danger" className="w-full">View Alerts (12)</Button>
-              </div>
-
-              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500 pt-2">Recent Events</h2>
-              <div className="space-y-2">
-                <EventItem label="App 'Video-Conf-Prod' scale-up" time="2m ago" />
-                <EventItem label="Spike in packet loss (US-East)" time="14m ago" variant="error" />
-                <EventItem label="New API version deployed" time="45m ago" variant="success" />
+                <Button variant="primary" className="w-full text-xs h-9">Create New App</Button>
+                <Button variant="secondary" className="w-full text-xs h-9">Invite Team Member</Button>
               </div>
             </div>
           </div>
@@ -146,20 +165,6 @@ function NavItem({ icon: Icon, label, active = false }: { icon: any, label: stri
       <Icon size={14} className={active ? 'text-[--color-primary-dd]' : 'text-slate-400'} />
       {label}
     </a>
-  );
-}
-
-function EventItem({ label, time, variant = 'neutral' }: { label: string, time: string, variant?: any }) {
-  return (
-    <div className="flex items-start gap-3 p-2 rounded-[--radius-sm] hover:bg-slate-50 dark:hover:bg-white/5 transition-colors cursor-pointer group">
-      <div className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${variant === 'success' ? 'bg-[--color-status-success]' :
-        variant === 'error' ? 'bg-[--color-status-error]' : 'bg-slate-300 dark:bg-slate-600'
-        }`}></div>
-      <div className="flex-1 min-w-0">
-        <div className="text-[11px] font-medium leading-tight group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{label}</div>
-        <div className="text-[9px] text-slate-400 mt-0.5">{time}</div>
-      </div>
-    </div>
   );
 }
 
