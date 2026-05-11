@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  /* Datadog Inspired Palette */
+  --color-primary-dd: #632CA6;
+  --color-primary-dd-hover: #4e2285;
+
+  /* Backgrounds */
+  --color-dd-bg-light: #F7F7F7;
+  --color-dd-bg-dark-sidebar: #110F20;
+  --color-dd-bg-dark-main: #161426;
+  --color-dd-bg-dark-card: #1C1A33;
+
+  /* Borders */
+  --color-dd-border-light: #E2E2E2;
+  --color-dd-border-dark: #2E2B4B;
+
+  /* Semantic Status */
+  --color-status-success: #10B981;
+  --color-status-warning: #F59E0B;
+  --color-status-error: #E11D48;
+  --color-status-neutral: #64748B;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Border Radius - Datadog uses sharper corners */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+@layer base {
+  body {
+    @apply bg-[--color-dd-bg-light] text-slate-700 font-sans transition-colors duration-200 antialiased;
+  }
+
+  .dark body {
+    @apply bg-[--color-dd-bg-dark-main] text-slate-300;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-slate-900 font-semibold;
+  }
+
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    @apply text-white;
+  }
+}
