@@ -35,7 +35,8 @@ function DashboardRoutes() {
       <Route path="/conferences/:id" element={<ConferenceDetail />} />
       <Route path="/sessions/:id" element={<SessionDetail />} />
       {/* Add other dashboard routes here as they are implemented */}
-      <Route path="/logs" element={<Layout title="Logs"><Placeholder label="Logs" /></Layout>} />
+      <Route path="/analytics" element={<Layout title="Analytics"><Placeholder label="Analytics" /></Layout>} />
+      <Route path="/lookup" element={<Layout title="User Lookup"><Placeholder label="User Lookup" /></Layout>} />
       <Route path="/team" element={<Team />} />
       <Route path="/settings" element={<Settings />} />
     </Routes>

@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import {
     LayoutDashboard,
     Activity,
-    Database,
     Users,
     Settings,
     ExternalLink,
@@ -11,7 +10,9 @@ import {
     ChevronRight,
     LogOut,
     Zap,
-    Clock
+    Clock,
+    BarChart3,
+    Search
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -44,7 +45,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, toggleCollapsed }) => {
             <nav className="flex-1 p-2 space-y-0.5 overflow-y-auto overflow-x-hidden">
                 <NavItem to="/" icon={LayoutDashboard} label="Overview" collapsed={isCollapsed} />
                 <NavItem to="/conferences" icon={Activity} label="Conferences" collapsed={isCollapsed} />
-                <NavItem to="/logs" icon={Database} label="Logs" collapsed={isCollapsed} />
+                <NavItem to="/analytics" icon={BarChart3} label="Analytics" collapsed={isCollapsed} />
+                <NavItem to="/lookup" icon={Search} label="User Lookup" collapsed={isCollapsed} />
                 <NavItem to="/team" icon={Users} label="Team" collapsed={isCollapsed} />
                 <NavItem to="/settings" icon={Settings} label="Settings" collapsed={isCollapsed} />
 
