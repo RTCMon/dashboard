@@ -71,7 +71,7 @@ const Team: React.FC = () => {
     const handleUpdateRole = async (userId: string, newRole: string) => {
         try {
             // Check breakdown again: it says PATCH /v1/team/members/:userId/role
-            await api.post(`/v1/team/members/${userId}/role`, { role: newRole });
+            await api.patch(`/v1/team/members/${userId}/role`, { role: newRole });
             setMembers(members.map(m => m.id === userId ? { ...m, role: newRole } : m));
         } catch (err) {
             alert('Failed to update role');
