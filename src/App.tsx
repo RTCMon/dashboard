@@ -7,6 +7,7 @@ import ConferenceDetail from './pages/ConferenceDetail';
 import SessionDetail from './pages/SessionDetail';
 import Team from './pages/Team';
 import Settings from './pages/Settings';
+import Analytics from './pages/Analytics';
 import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './components/layout/Layout';
 
@@ -35,7 +36,7 @@ function DashboardRoutes() {
       <Route path="/conferences/:id" element={<ConferenceDetail />} />
       <Route path="/sessions/:id" element={<SessionDetail />} />
       {/* Add other dashboard routes here as they are implemented */}
-      <Route path="/analytics" element={<Layout title="Analytics"><Placeholder label="Analytics" /></Layout>} />
+      <Route path="/analytics" element={<Analytics />} />
       <Route path="/lookup" element={<Layout title="User Lookup"><Placeholder label="User Lookup" /></Layout>} />
       <Route path="/team" element={<Team />} />
       <Route path="/settings" element={<Settings />} />
