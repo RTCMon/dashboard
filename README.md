@@ -78,14 +78,6 @@ src/
 |----------|-------------|---------|
 | `VITE_API_BASE_URL` | Base URL for the RTCMon Query API | `http://localhost:8081` |
 
-## 🧪 Documentation
-
-For detailed architectural notes and task breakdowns, refer to the `docs/` and `plans/` directories.
-
-- **[Breakdown Task](docs/dashboard/Breakdown_task.md)**: Implementation progress and roadmap.
-- **[PRD](docs/PRD.md)**: Product Requirements Document.
-- **[RFC](docs/RFC.md)**: Architecture and API specifications.
-
 ## 📄 License
 
 © 2026 RTCMon Team. All rights reserved.

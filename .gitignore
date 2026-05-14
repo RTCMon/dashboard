@@ -25,6 +25,6 @@ dist-ssr
 
 #
 docs
-plans.env
+plans
 task.md
 api_mapping.md
