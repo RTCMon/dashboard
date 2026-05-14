@@ -6,6 +6,7 @@ import Conferences from './pages/Conferences';
 import ConferenceDetail from './pages/ConferenceDetail';
 import SessionDetail from './pages/SessionDetail';
 import Team from './pages/Team';
+import Settings from './pages/Settings';
 import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './components/layout/Layout';
 
@@ -36,7 +37,7 @@ function DashboardRoutes() {
       {/* Add other dashboard routes here as they are implemented */}
       <Route path="/logs" element={<Layout title="Logs"><Placeholder label="Logs" /></Layout>} />
       <Route path="/team" element={<Team />} />
-      <Route path="/settings" element={<Layout title="Settings"><Placeholder label="Settings" /></Layout>} />
+      <Route path="/settings" element={<Settings />} />
     </Routes>
   );
 }
