@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# RTCMon Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RTCMon Dashboard is a high-density, operator-focused monitoring interface for WebRTC telemetry. It provides real-time insights into conference quality, session-level debugging, and fleet-wide analytics.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Conference Explorer**: Searchable and filterable list of active and historical WebRTC conferences.
+- **Session Debugger**: Synchronized time-series charts for Bitrate, Packet Loss, Jitter, RTT, and eMOS.
+- **Visual Topology**: Interactive network path visualization (Client → Relay → SFU).
+- **Fleet Analytics**: Global KPIs, eMOS trends, and dimensional breakdowns (Browser, OS, Region, Network).
+- **User Lookup**: Identify and troubleshoot sessions based on participant identity or display name.
+- **Team Management**: Admin interface for managing members, roles, and invitations.
+- **Application Settings**: Configure observation thresholds and data retention policies per application.
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: React 19 + Vite
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Data Viz**: Custom SVG-based charts (optimized for high-density telemetry)
+- **API Communication**: Native Fetch with typed wrappers and session management
 
-## Expanding the ESLint configuration
+## 📦 Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js (v18+)
+- npm or yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Configure environment variables:
+   Create a `.env` file in the root directory:
+   ```bash
+   VITE_API_BASE_URL=http://localhost:8081
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Building for Production
+
+```bash
+npm run build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📂 Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+├── assets/         # Static assets and images
+├── components/     # UI components
+│   ├── analytics/  # Analytics-specific components
+│   ├── layout/     # Sidebar, Header, and Shell
+│   ├── lookup/     # User search components
+│   ├── settings/   # Multi-tab settings components
+│   ├── team/       # Team management components
+│   └── ui/         # Atomic UI primitives
+├── context/        # React Context providers (Auth, App, Theme)
+├── lib/            # Utility libraries (API client, helpers)
+├── pages/          # Top-level page components
+├── App.tsx         # Main routing and entry point
+└── index.css       # Global styles and design system tokens
 ```
+
+## 🔧 Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `VITE_API_BASE_URL` | Base URL for the RTCMon Query API | `http://localhost:8081` |
+
+## 🧪 Documentation
+
+For detailed architectural notes and task breakdowns, refer to the `docs/` and `plans/` directories.
+
+- **[Breakdown Task](docs/dashboard/Breakdown_task.md)**: Implementation progress and roadmap.
+- **[PRD](docs/PRD.md)**: Product Requirements Document.
+- **[RFC](docs/RFC.md)**: Architecture and API specifications.
+
+## 📄 License
+
+© 2026 RTCMon Team. All rights reserved.
